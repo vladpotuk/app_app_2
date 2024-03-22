@@ -4,20 +4,36 @@ namespace DelegateEventExample
 {
     class Program
     {
-        
+  
         delegate bool CheckEvenDelegate(int number);
 
         static void Main(string[] args)
         {
-            
+          
             CheckEvenDelegate checkEven = num => num % 2 == 0;
 
-            
-            int testNumber = 10;
-            Console.WriteLine($"Число {testNumber} парне: {checkEven(testNumber)}");
+           
+            while (true)
+            {
+                
+                Console.Write("Введіть число (або 'q', щоб вийти): ");
+                string input = Console.ReadLine();
 
-            testNumber = 7;
-            Console.WriteLine($"Число {testNumber} парне: {checkEven(testNumber)}");
+            
+                if (input.ToLower() == "q")
+                    break;
+
+              
+                if (int.TryParse(input, out int testNumber))
+                {
+                   
+                    Console.WriteLine($"Число {testNumber} парне: {checkEven(testNumber)}");
+                }
+                else
+                {
+                    Console.WriteLine("Введено некоректне число. Будь ласка, спробуйте знову.");
+                }
+            }
         }
     }
 }
