@@ -2,6 +2,7 @@
 
 namespace RainbowColors
 {
+    
     class Program
     {
         static void Main(string[] args)
